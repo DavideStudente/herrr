@@ -1,0 +1,51 @@
+<% provide(:title, "Team "+ @team.name ) %>
+
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @team.avatar.url(:thumb),width: 80, class: "avatar-image" %>
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<p>
+  <strong>Boss:</strong>
+  <%= @team.boss %>
+</p>
+
+<p>
+  <strong>Invite:</strong>
+  <%= @team.invites.each do |inv| %>
+      <%= inv%>
+  <% end %>
+</p>
+
+<p>
+  <strong>Matches:</strong>
+  <%= @team.matches.each do |mat| %>
+    <%= mat%>
+  <% end %>
+</p>
+
+<p>
+  <strong>Challenges:</strong>
+  <%= @team.challenges.each do |cha| %>
+    <%= cha%>
+  <% end %>
+</p>
+<p>
+  <strong>Members:</strong>
+  <%= @team.members.each do |mem| %>
+    <%= mem %>
+  <% end %>
+</p>
+
+
+  
+  <%= link_to 'Join this team', team_join_path(@team) %></br>
+  <%= link_to 'Leave this team', team_leave_path(@team) %></br></br>
+  
+
+
+  <%= link_to 'Edit', edit_team_path(@team) %> |
+  <%= link_to 'Back', teams_path  %>

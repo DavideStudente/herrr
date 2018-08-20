@@ -1,0 +1,52 @@
+<% provide(:title, "Edit attributes") %>
+<h1 class="center">Change additional attributes</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">      <!--  url ti manda al controller di riferimento diciamo (dopo la post) il params riprende il token dal link che attiva la pagina -->
+    <%= form_for(:account_attributes, url: account_attributes_path) do |f| %>
+
+
+      <%= hidden_field_tag :email, params[:email] %>
+
+
+      <p>
+
+      <%= label :console, 'Choose your console:' %>
+
+      console_1 <%= f.radio_button :conssole,'console 1', class: 'form-control'%>
+
+      console_2 <%= f.radio_button :conssole,'console 2', class: 'form-control'%>
+
+      console_3 <%= f.radio_button :conssole, 'console 3', class: 'form-control'%>
+
+      </p>
+
+      <%= f.label :console_nickname %>
+      <%= f.text_field :nickname, class: 'form-control' %>
+
+      <%= f.label :nation %>
+      <%= f.text_field :nation, class: 'form-control' %>
+
+
+      <%= label :games, 'Choose your games:' %>
+
+      game_1 <%= f.check_box :gammes,{:multiple => true},'game 1',false%>
+
+      game_2 <%= f.check_box :gammes,{:multiple => true},'game 2',false%>
+
+      game_3 <%= f.check_box :gammes,{:multiple => true},'game 3',false%>
+
+      </p>
+
+
+
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+
+
+
+      <%= f.submit "Update Profile", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

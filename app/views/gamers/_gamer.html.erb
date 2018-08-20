@@ -1,0 +1,8 @@
+<li>
+  <%= link_to gamer.username, gamer %>
+  <%= gamer.email %>
+  <% if current_gamer.admin? && !current_gamer?(gamer) %>
+    | <%= link_to "delete", gamer, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+</li>

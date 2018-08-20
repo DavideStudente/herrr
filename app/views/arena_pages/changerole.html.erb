@@ -1,0 +1,8 @@
+<% provide(:title, "Change Role") %>
+
+<td>
+  <%= form_for(current_gamer) do |f| %>
+    <%= f.select(:role, Gamer.roles.keys.map {|role| [role.titleize,role]}) %>
+    <%= f.submit 'Change Role', :class => 'button-xs' %>
+  <% end %>
+</td>

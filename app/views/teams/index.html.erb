@@ -1,0 +1,41 @@
+<% provide(:title, "Teams list") %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Teams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Boss</th>
+      <th>Invite</th>
+      <th>Match</th>
+      <th>Challenge</th>
+      <th>Member</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.all.each do |team| %>
+      <tr>
+        <td> <%= image_tag team.avatar.url(:thumb),width: 60, class: "avatar-image" %>
+</td>
+        <td><%= team.name %></td>
+        <td><%= team.boss %></td>
+        <td><%= team.invites.to_a %></td>
+        <td><%= team.matches.to_a %></td>
+        <td><%= team.challenges.to_a %></td>
+        <td><%= team.members.to_a %></td>
+        <td><%= link_to 'Show', team %></td>
+        <td><%= link_to 'Edit', edit_team_path(team) %></td>
+        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Team', new_team_path %>

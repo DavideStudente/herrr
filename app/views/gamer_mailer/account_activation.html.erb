@@ -1,0 +1,10 @@
+<h1>Gamers Arena</h1>
+
+<p>Hi <%= @gamer.username %>,</p>
+
+<p>
+Welcome to the Gamers Arena! Click on the link below to activate your account:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@gamer.activation_token,
+                                                    email: @gamer.email) %>

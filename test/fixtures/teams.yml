@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  boss: one
+  invite: one
+  match: one
+  challenge: one
+  member: one
+
+two:
+  name: MyString
+  boss: two
+  invite: two
+  match: two
+  challenge: two
+  member: two

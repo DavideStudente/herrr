@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> <%= yield(:title) %> | Players Arena</title><!--<title>ArenaApp</title> NON MI METTEVA I TITOLI PERCHE SETTAVA SEMPRE QUESTO DI BASE -->
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+
+
+    <header class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+        </div>
+        <nav>
+            <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Home" , home_path %></li>
+                <li><%= link_to "Help" , help_path %></li>
+                <li><%= link_to "About" , about_path %></li>
+                <% if logged_in? %>
+                  <li><%= link_to "Gamers", gamers_path %></li>
+                  <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Account <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                  <li><%= link_to "Profile", current_gamer %></li>
+                  <li><%= link_to "Settings", edit_gamer_path(current_gamer) %></li>
+                  <li class="divider"></li>
+                  <li>
+                  <%= link_to "Log out", logout_path, method: :delete %>
+                  </li>
+                  </ul>
+                  </li>
+                  <% else %>
+                    <li><%= link_to "Log in", login_path %></li>
+              <% end %>
+
+            </ul>
+        </nav>
+
+    </header>
+
+
+
+
+        <%= yield %>
+  </body>
+</html>

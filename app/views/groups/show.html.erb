@@ -1,0 +1,29 @@
+<% provide(:title, "Showing group") %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @group.region %>
+</p>
+
+<p>
+  <strong>Console:</strong>
+  <%= @group.console %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  
+  	
+  	<% @group.games.each do |g| %>
+  		<%= g.name %>
+  	<%end%>
+</p>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

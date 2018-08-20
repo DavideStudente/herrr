@@ -1,0 +1,5 @@
+Hi <%= @gamer.username %>,     <!-- legge la variabile inserita dentro gamer mailer -->
+
+Welcome to the Gamer Arena! Click on the link below to activate your account:
+
+<%= edit_account_activation_url(@gamer.activation_token, email: @gamer.email) %>
